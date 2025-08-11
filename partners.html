@@ -3,102 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Partners | Your Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Our Partners | Award-Winning Portfolio</title>
     <style>
-        /* CSS Reset & Base Styles */
-        :root {
-            --primary: #4361ee;
-            --primary-dark: #3a0ca3;
-            --secondary: #f72585;
-            --dark: #212529;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
+        /* Modern CSS Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Base Styles */
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #2667cc;
+            --secondary: #ff006e;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7ff;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f8f9fa;
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* Main Container */
-        .partners-container {
-            max-width: 1400px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
-            position: relative;
+            padding: 2rem;
         }
 
         /* Header Section */
-        .partners-header {
+        .header {
             text-align: center;
-            margin-bottom: 5rem;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
         }
 
-        .partners-subtitle {
-            font-size: 1.1rem;
-            color: var(--primary);
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+        .subtitle {
             display: inline-block;
-            position: relative;
+            font-size: 1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .partners-title {
-            font-size: 3.5rem;
+        .title {
+            font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            position: relative;
         }
 
-        .partners-description {
+        .description {
             max-width: 700px;
-            margin: 0 auto 2rem;
-            font-size: 1.2rem;
+            margin: 0 auto;
             color: var(--gray);
+            font-size: 1.1rem;
         }
 
-        /* Stats Counter */
-        .stats-container {
+        /* Stats Section */
+        .stats {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 2rem;
+            margin: 3rem 0;
             flex-wrap: wrap;
         }
 
         .stat-item {
-            text-align: center;
-            padding: 1.5rem 2rem;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            min-width: 180px;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
+            min-width: 180px;
         }
 
         .stat-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
         .stat-number {
@@ -106,25 +100,21 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 0.5rem;
-            font-family: 'Poppins', sans-serif;
         }
 
         .stat-label {
-            font-size: 0.9rem;
             color: var(--gray);
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 600;
         }
 
         /* Partners Grid */
         .partners-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin: 4rem 0;
-            position: relative;
-            z-index: 2;
         }
 
         .partner-card {
@@ -135,83 +125,46 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
+            height: 180px;
             position: relative;
             overflow: hidden;
-            height: 180px;
-        }
-
-        .partner-card::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
         }
 
         .partner-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.15);
-        }
-
-        .partner-card:hover::before {
-            transform: scaleX(1);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
         .partner-logo {
             max-width: 120px;
             max-height: 60px;
             object-fit: contain;
-            filter: grayscale(100%) contrast(0.5);
-            opacity: 0.8;
+            filter: grayscale(100%);
+            opacity: 0.7;
             transition: var(--transition);
         }
 
         .partner-card:hover .partner-logo {
-            filter: grayscale(0) contrast(1);
+            filter: grayscale(0);
             opacity: 1;
             transform: scale(1.1);
         }
 
-        .partner-name {
-            margin-top: 1rem;
-            font-weight: 600;
-            color: var(--dark);
-            text-align: center;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        .partner-card:hover .partner-name {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Featured Partner */
-        .featured-partner {
+        .featured {
             display: flex;
             background: white;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            margin: 6rem 0;
-            position: relative;
-            z-index: 2;
+            box-shadow: var(--shadow-md);
+            margin: 4rem 0;
         }
 
         .featured-content {
             padding: 3rem;
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .featured-logo {
@@ -225,7 +178,7 @@
             color: var(--dark);
         }
 
-        .featured-description {
+        .featured-text {
             color: var(--gray);
             margin-bottom: 2rem;
             line-height: 1.7;
@@ -237,125 +190,43 @@
             color: var(--primary);
             font-weight: 600;
             text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .featured-link i {
-            margin-left: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .featured-link:hover {
-            color: var(--primary-dark);
-        }
-
-        .featured-link:hover i {
-            transform: translateX(5px);
         }
 
         .featured-image {
             flex: 1;
-            background-size: cover;
-            background-position: center;
+            background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
             min-height: 400px;
-            position: relative;
-        }
-
-        .featured-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9), rgba(247, 37, 133, 0.7));
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .featured-image:hover::before {
-            opacity: 1;
         }
 
         /* Testimonials */
-        .testimonials-section {
-            margin: 6rem 0;
+        .testimonials {
+            margin: 4rem 0;
         }
 
         .testimonials-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 3rem;
-            color: var(--dark);
-        }
-
-        .testimonials-container {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            padding: 1rem 0;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .testimonials-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .testimonials-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .testimonials-container::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
         }
 
         .testimonial-card {
-            min-width: 350px;
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            scroll-snap-align: start;
-            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
-        }
-
-        .testimonial-content {
+        .testimonial-text {
             font-style: italic;
             color: var(--gray);
             margin-bottom: 1.5rem;
             position: relative;
         }
 
-        .testimonial-content::before,
-        .testimonial-content::after {
-            content: '"';
-            font-size: 3rem;
-            color: rgba(67, 97, 238, 0.1);
-            position: absolute;
-        }
-
-        .testimonial-content::before {
-            top: -20px;
-            left: -10px;
-        }
-
-        .testimonial-content::after {
-            bottom: -40px;
-            right: -10px;
-        }
-
         .testimonial-author {
             display: flex;
             align-items: center;
-            margin-top: 1.5rem;
         }
 
         .author-avatar {
@@ -364,506 +235,232 @@
             border-radius: 50%;
             object-fit: cover;
             margin-right: 1rem;
-            border: 3px solid var(--primary);
-        }
-
-        .author-info h4 {
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-            color: var(--dark);
-        }
-
-        .author-info p {
-            color: var(--gray);
-            font-size: 0.9rem;
+            border: 2px solid var(--primary);
         }
 
         /* CTA Section */
-        .cta-section {
+        .cta {
             text-align: center;
-            margin-top: 6rem;
-            padding: 4rem 2rem;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 20px;
             color: white;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            left: -80px;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            z-index: -1;
+            padding: 4rem 2rem;
+            border-radius: 16px;
+            margin: 4rem 0;
         }
 
         .cta-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
-        }
-
-        .cta-description {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
         }
 
         .cta-button {
             display: inline-block;
             background: white;
             color: var(--primary);
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
-        /* Background Elements */
-        .bg-element {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            z-index: 0;
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .bg-element-1 {
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            top: -150px;
-            right: -150px;
+        .animate {
+            animation: fadeIn 0.6s ease-out forwards;
         }
 
-        .bg-element-2 {
-            width: 200px;
-            height: 200px;
-            background: var(--secondary);
-            bottom: -100px;
-            left: -100px;
-        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .partners-title {
-                font-size: 2.8rem;
-            }
-
-            .featured-partner {
-                flex-direction: column;
-            }
-
-            .featured-image {
-                min-height: 300px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .partners-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 1.5rem;
-            }
-
-            .stats-container {
-                gap: 1.5rem;
-            }
-
-            .stat-item {
-                min-width: 140px;
-                padding: 1rem 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .testimonial-card {
-                min-width: 280px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .partners-title {
+            .title {
                 font-size: 2.2rem;
             }
-
-            .partners-description {
-                font-size: 1rem;
+            
+            .featured {
+                flex-direction: column;
             }
+            
+            .featured-image {
+                min-height: 250px;
+            }
+            
+            .partners-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
 
-            .stats-container {
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .stats {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .stat-item {
-                width: 100%;
-                max-width: 200px;
-            }
-
-            .cta-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-1 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-2 {
-            transition-delay: 0.4s;
-        }
-
-        .delay-3 {
-            transition-delay: 0.6s;
         }
     </style>
 </head>
 <body>
-    <div class="partners-container">
-        <!-- Background Elements -->
-        <div class="bg-element bg-element-1"></div>
-        <div class="bg-element bg-element-2"></div>
-
-        <!-- Header Section -->
-        <header class="partners-header">
-            <p class="partners-subtitle fade-in">Trusted Collaborations</p>
-            <h1 class="partners-title fade-in delay-1">Our Valued Partners</h1>
-            <p class="partners-description fade-in delay-2">
-                We're proud to collaborate with industry leaders and innovative brands that share our vision for excellence. 
-                These partnerships enable us to deliver exceptional results for our clients.
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <p class="subtitle animate">Strategic Collaborations</p>
+            <h1 class="title animate delay-1">Our Valued Partners</h1>
+            <p class="description animate delay-2">
+                We're proud to collaborate with industry leaders who share our commitment to excellence.
+                Together, we create innovative solutions that drive success.
             </p>
             
-            <!-- Stats Counter -->
-            <div class="stats-container">
-                <div class="stat-item fade-in delay-1">
-                    <div class="stat-number" id="partnerCount">0</div>
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-item animate">
+                    <div class="stat-number">50+</div>
                     <div class="stat-label">Trusted Partners</div>
                 </div>
-                <div class="stat-item fade-in delay-2">
-                    <div class="stat-number" id="projectCount">0</div>
-                    <div class="stat-label">Joint Projects</div>
+                <div class="stat-item animate delay-1">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">Projects</div>
                 </div>
-                <div class="stat-item fade-in delay-3">
-                    <div class="stat-number" id="countryCount">0</div>
+                <div class="stat-item animate delay-2">
+                    <div class="stat-number">15+</div>
                     <div class="stat-label">Countries</div>
                 </div>
             </div>
         </header>
 
         <!-- Partners Grid -->
-        <section>
-            <div class="partners-grid">
-                <!-- Partner 1 -->
-                <div class="partner-card fade-in">
-                    <img src="https://via.placeholder.com/150x60?text=TechCorp" alt="TechCorp" class="partner-logo">
-                    <span class="partner-name">TechCorp</span>
-                </div>
-                
-                <!-- Partner 2 -->
-                <div class="partner-card fade-in delay-1">
-                    <img src="https://via.placeholder.com/150x60?text=DesignHub" alt="DesignHub" class="partner-logo">
-                    <span class="partner-name">DesignHub</span>
-                </div>
-                
-                <!-- Partner 3 -->
-                <div class="partner-card fade-in delay-2">
-                    <img src="https://via.placeholder.com/150x60?text=GlobalSoft" alt="GlobalSoft" class="partner-logo">
-                    <span class="partner-name">GlobalSoft</span>
-                </div>
-                
-                <!-- Partner 4 -->
-                <div class="partner-card fade-in delay-3">
-                    <img src="https://via.placeholder.com/150x60?text=InnovateX" alt="InnovateX" class="partner-logo">
-                    <span class="partner-name">InnovateX</span>
-                </div>
-                
-                <!-- Partner 5 -->
-                <div class="partner-card fade-in">
-                    <img src="https://via.placeholder.com/150x60?text=DigitalA" alt="DigitalA" class="partner-logo">
-                    <span class="partner-name">DigitalA</span>
-                </div>
-                
-                <!-- Partner 6 -->
-                <div class="partner-card fade-in delay-1">
-                    <img src="https://via.placeholder.com/150x60?text=WebMasters" alt="WebMasters" class="partner-logo">
-                    <span class="partner-name">WebMasters</span>
-                </div>
-                
-                <!-- Partner 7 -->
-                <div class="partner-card fade-in delay-2">
-                    <img src="https://via.placeholder.com/150x60?text=BrandVibe" alt="BrandVibe" class="partner-logo">
-                    <span class="partner-name">BrandVibe</span>
-                </div>
-                
-                <!-- Partner 8 -->
-                <div class="partner-card fade-in delay-3">
-                    <img src="https://via.placeholder.com/150x60?text=FutureLabs" alt="FutureLabs" class="partner-logo">
-                    <span class="partner-name">FutureLabs</span>
-                </div>
-                
-                <!-- Partner 9 -->
-                <div class="partner-card fade-in">
-                    <img src="https://via.placeholder.com/150x60?text=CodeNinjas" alt="CodeNinjas" class="partner-logo">
-                    <span class="partner-name">CodeNinjas</span>
-                </div>
-                
-                <!-- Partner 10 -->
-                <div class="partner-card fade-in delay-1">
-                    <img src="https://via.placeholder.com/150x60?text=PixelPerfect" alt="PixelPerfect" class="partner-logo">
-                    <span class="partner-name">PixelPerfect</span>
-                </div>
-                
-                <!-- Partner 11 -->
-                <div class="partner-card fade-in delay-2">
-                    <img src="https://via.placeholder.com/150x60?text=DataSphere" alt="DataSphere" class="partner-logo">
-                    <span class="partner-name">DataSphere</span>
-                </div>
-                
-                <!-- Partner 12 -->
-                <div class="partner-card fade-in delay-3">
-                    <img src="https://via.placeholder.com/150x60?text=CloudNine" alt="CloudNine" class="partner-logo">
-                    <span class="partner-name">CloudNine</span>
-                </div>
+        <div class="partners-grid">
+            <!-- Partner 1 -->
+            <div class="partner-card animate">
+                <img src="https://via.placeholder.com/150x60?text=TechCorp" alt="TechCorp" class="partner-logo">
             </div>
-        </section>
+            
+            <!-- Partner 2 -->
+            <div class="partner-card animate delay-1">
+                <img src="https://via.placeholder.com/150x60?text=DesignHub" alt="DesignHub" class="partner-logo">
+            </div>
+            
+            <!-- Partner 3 -->
+            <div class="partner-card animate delay-2">
+                <img src="https://via.placeholder.com/150x60?text=GlobalSoft" alt="GlobalSoft" class="partner-logo">
+            </div>
+            
+            <!-- Partner 4 -->
+            <div class="partner-card animate delay-3">
+                <img src="https://via.placeholder.com/150x60?text=InnovateX" alt="InnovateX" class="partner-logo">
+            </div>
+            
+            <!-- Partner 5 -->
+            <div class="partner-card animate">
+                <img src="https://via.placeholder.com/150x60?text=DigitalA" alt="DigitalA" class="partner-logo">
+            </div>
+            
+            <!-- Partner 6 -->
+            <div class="partner-card animate delay-1">
+                <img src="https://via.placeholder.com/150x60?text=WebMasters" alt="WebMasters" class="partner-logo">
+            </div>
+            
+            <!-- Partner 7 -->
+            <div class="partner-card animate delay-2">
+                <img src="https://via.placeholder.com/150x60?text=BrandVibe" alt="BrandVibe" class="partner-logo">
+            </div>
+            
+            <!-- Partner 8 -->
+            <div class="partner-card animate delay-3">
+                <img src="https://via.placeholder.com/150x60?text=FutureLabs" alt="FutureLabs" class="partner-logo">
+            </div>
+        </div>
 
         <!-- Featured Partner -->
-        <section class="featured-partner fade-in">
+        <div class="featured animate">
             <div class="featured-content">
                 <img src="https://via.placeholder.com/180x60?text=TechGiant" alt="TechGiant" class="featured-logo">
-                <h2 class="featured-title">Featured Collaboration: TechGiant</h2>
-                <p class="featured-description">
-                    Our strategic partnership with TechGiant has enabled us to deliver cutting-edge solutions 
-                    to Fortune 500 companies. Together, we've developed award-winning digital platforms that 
-                    have transformed industries and created exceptional user experiences.
+                <h2 class="featured-title">Featured Collaboration</h2>
+                <p class="featured-text">
+                    Our partnership with TechGiant has enabled us to deliver cutting-edge solutions to Fortune 500 companies. 
+                    Together we've developed award-winning platforms that transformed entire industries.
                 </p>
                 <a href="#" class="featured-link">
-                    View Case Study <i class="fas fa-arrow-right"></i>
+                    View Case Study →
                 </a>
             </div>
-            <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-        </section>
+            <div class="featured-image"></div>
+        </div>
 
         <!-- Testimonials -->
-        <section class="testimonials-section">
-            <h2 class="testimonials-title fade-in">What Our Partners Say</h2>
-            <div class="testimonials-container">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card fade-in">
-                    <p class="testimonial-content">
-                        Working with this team has been transformative for our business. Their innovative approach 
-                        and technical expertise helped us scale our platform to millions of users.
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>CEO, TechCorp</p>
-                        </div>
+        <section class="testimonials">
+            <h2 class="testimonials-title animate">What Our Partners Say</h2>
+            
+            <div class="testimonial-card animate">
+                <p class="testimonial-text">
+                    "Working with this team has been transformative for our business. Their innovative approach and technical expertise helped us scale our platform to millions of users."
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-avatar">
+                    <div>
+                        <h4>Sarah Johnson</h4>
+                        <p>CEO, TechCorp</p>
                     </div>
                 </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card fade-in delay-1">
-                    <p class="testimonial-content">
-                        Exceptional quality and professionalism. They delivered our project ahead of schedule 
-                        and under budget, exceeding all our expectations.
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>CTO, InnovateX</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card fade-in delay-2">
-                    <p class="testimonial-content">
-                        The creative solutions they proposed revolutionized our digital presence. Our engagement 
-                        metrics improved by 300% after implementing their strategies.
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Emma Rodriguez</h4>
-                            <p>Marketing Director, BrandVibe</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 4 -->
-                <div class="testimonial-card fade-in delay-3">
-                    <p class="testimonial-content">
-                        A true partnership where both sides brought their best. Their team became an extension 
-                        of ours, working seamlessly to achieve outstanding results.
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Kim" class="author-avatar">
-                        <div class="author-info">
-                            <h4>David Kim</h4>
-                            <p>Product Lead, DigitalA</p>
-                        </div>
+            </div>
+            
+            <div class="testimonial-card animate delay-1">
+                <p class="testimonial-text">
+                    "Exceptional quality and professionalism. They delivered our project ahead of schedule and under budget, exceeding all our expectations."
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-avatar">
+                    <div>
+                        <h4>Michael Chen</h4>
+                        <p>CTO, InnovateX</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section fade-in delay-2">
-            <h2 class="cta-title">Ready to Become Our Next Success Story?</h2>
-            <p class="cta-description">
-                We're always looking for new partners who share our passion for innovation and excellence. 
-                Let's explore how we can create something amazing together.
-            </p>
+        <!-- CTA -->
+        <section class="cta animate delay-2">
+            <h2 class="cta-title">Ready to Collaborate?</h2>
+            <p>Let's create something amazing together.</p>
             <a href="#" class="cta-button">Get in Touch</a>
         </section>
     </div>
 
     <script>
-        // Scroll Animation
+        // Simple animation trigger
         document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+            const animatedElements = document.querySelectorAll('.animate');
             
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
+            const animateOnScroll = function() {
+                animatedElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
                     
-                    if (elementTop < windowHeight - 100) {
-                        element.classList.add('active');
+                    if (elementPosition < windowHeight - 100) {
+                        element.style.opacity = 1;
                     }
                 });
             };
             
             // Initial check
-            fadeInOnScroll();
+            animateOnScroll();
             
             // Check on scroll
-            window.addEventListener('scroll', fadeInOnScroll);
-            
-            // Counter Animation
-            function animateCounter(element, target, duration = 2000) {
-                const start = 0;
-                const increment = target / (duration / 16);
-                let current = start;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        clearInterval(timer);
-                        current = target;
-                    }
-                    element.textContent = Math.floor(current).toLocaleString();
-                }, 16);
-            }
-            
-            // Start counters when they come into view
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = parseInt(entry.target.textContent);
-                        animateCounter(entry.target, target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
-            
-            // Partner logo hover effect enhancement
-            const partnerCards = document.querySelectorAll('.partner-card');
-            partnerCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px)';
-                    this.style.boxShadow = '0 15px 30px rgba(67, 97, 238, 0.15)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = '';
-                    this.style.boxShadow = '';
-                });
-            });
-            
-            // Featured image hover effect
-            const featuredImage = document.querySelector('.featured-image');
-            if (featuredImage) {
-                featuredImage.addEventListener('mouseenter', function() {
-                    this.querySelector('img')?.style.transform = 'scale(1.05)';
-                });
-                
-                featuredImage.addEventListener('mouseleave', function() {
-                    this.querySelector('img')?.style.transform = '';
-                });
-            }
-            
-            // Smooth scroll for testimonials container
-            const testimonialsContainer = document.querySelector('.testimonials-container');
-            if (testimonialsContainer) {
-                let isDown = false;
-                let startX;
-                let scrollLeft;
-                
-                testimonialsContainer.addEventListener('mousedown', (e) => {
-                    isDown = true;
-                    startX = e.pageX - testimonialsContainer.offsetLeft;
-                    scrollLeft = testimonialsContainer.scrollLeft;
-                });
-                
-                testimonialsContainer.addEventListener('mouseleave', () => {
-                    isDown = false;
-                });
-                
-                testimonialsContainer.addEventListener('mouseup', () => {
-                    isDown = false;
-                });
-                
-                testimonialsContainer.addEventListener('mousemove', (e) => {
-                    if(!isDown) return;
-                    e.preventDefault();
-                    const x = e.pageX - testimonialsContainer.offsetLeft;
-                    const walk = (x - startX) * 2;
-                    testimonialsContainer.scrollLeft = scrollLeft - walk;
-                });
-            }
+            window.addEventListener('scroll', animateOnScroll);
         });
     </script>
 </body>
